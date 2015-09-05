@@ -10,5 +10,7 @@ function changeImageClick(element,imgLink)
 }
 function changeImageAll(imgLink)
 {
+	console.log("YESS SUCCESS");
 	$("img").attr("src",imgLink);
 }
+console.log("read content src");
