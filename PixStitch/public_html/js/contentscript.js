@@ -1,3 +1,17 @@
+
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    console.log("EASDLKFJAKSDJFASDF");
+    //getting objects in message, use request.greeting
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  });
+
+
 function changeImageRandom(imgLink)
 {
 	var rand = (Math.Random() * $("img").length);
@@ -13,14 +27,3 @@ function changeImageAll(imgLink)
 	console.log("YESS SUCCESS");
 	$("img").attr("src",imgLink);
 }
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    console.log("EASDLKFJAKSDJFASDF");
-    if (request.greeting == "hello")
-      sendResponse({farewell: "goodbye"});
-  });
-
