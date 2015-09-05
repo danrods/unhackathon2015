@@ -10,9 +10,9 @@ $(document).ready( function(){
 		console.log("clicked button");
 		try {
 			console.log("event activated, incomplete")
-			console.log($(this).attr('id'));
+			var str = $(this).attr('id');
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		  		chrome.tabs.sendMessage(tabs[0].id, {greeting: "sdf " + $(this).attr('id')}, function(response) {
+		  		chrome.tabs.sendMessage(tabs[0].id, {greeting: str}, function(response) {
 		  		});
 			});
 			console.log("done");
