@@ -1,7 +1,22 @@
 function changeImageRandom(imgLink)
 {
-	var rand = (Math.Random() * $("img").length);
-	$("img").get(rand).attr("src",imLink);
+	var rand = Math.floor((Math.random() * $("img").length));
+	console.log(rand);
+	//random doesnt work... -_-
+
+	var image = $("img").first();
+	console.log(image);
+	var imgg = image.clone();
+	imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+	//var img = $("body").html("<img src='" + imgLink + "'/>");
+	
+/* 	
+ 	image.removeElement("src");
+ 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
+ 	*/
+	var parent = image.parent();
+ 	image.remove();
+ 	parent.append(imgg);
 }
 function changeImageClick(element,imgLink)
 {
@@ -10,23 +25,35 @@ function changeImageClick(element,imgLink)
 }
 function changeImageAll(imgLink)
 {
-	$("img").attr("src",imgLink);
+	var images = $("img");
+	images.each( function(){
+		var imgg = $(this).clone();
+		imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+		//var img = $("body").html("<img src='" + imgLink + "'/>");
+	
+	/* 	
+	 	image.removeElement("src");
+ 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
+ 	*/
+		var parent = $(this).parent();
+ 		$(this).remove();
+ 		parent.append(imgg);
+ 	});
 }
-
+ 	
 chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        switch (request.directive) {
-        case "popup-click":
-            // execute the content script
-            chrome.tabs.executeScript(null, { // defaults to the current tab
-                file: "contentscript.js", // script to inject into page and run in sandbox
-                allFrames: true // This injects script into iframes in the page and doesn't work before 4.0.266.0.
-            });
-            sendResponse({}); // sending back empty response to sender
-            break;
-        default:
-            // helps debug when request directive doesn't match
-            alert("Unmatched request of '" + request + "' from script to background.js from " + sender);
-        }
-    }
-);
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.greeting != null)
+    	console.log(request.greeting);
+    else
+    	console.log("ADSFLKJADSFLKASD");
+    //getting objects in message, use request.greeting
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  	if (request.greeting == "something")
+  		changeImageAll("https://s.zkcdn.net/Advertisers/bf6a160cde9746c890285a40334fe6c2.jpg");
+  });
+
