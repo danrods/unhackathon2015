@@ -1,46 +1,34 @@
-function changeImageRandom(imgLink)
+function changeImageSecret(imgLink) // the first one...
 {
-	var rand = Math.floor((Math.random() * $("img").length));
-	console.log(rand);
-	//random doesnt work... -_-
-
+	//var rand = Math.floor((Math.random() * $("img").length));
 	var image = $("img").first();
 	console.log(image);
 	var imgg = image.clone();
 	imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
-	//var img = $("body").html("<img src='" + imgLink + "'/>");
-	
-/* 	
- 	image.removeElement("src");
- 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
- 	*/
 	var parent = image.parent();
  	image.remove();
  	parent.append(imgg);
 }
 function changeImageClick(element,imgLink)
 {
-
 	$("img").get(rand).attr("src",imgLink);
+
+	//.add("click", switchImage($(this), imgLink))
 }
 function changeImageAll(imgLink)
 {
 	var images = $("img");
 	images.each( function(){
-		var imgg = $(this).clone();
-		imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
-		//var img = $("body").html("<img src='" + imgLink + "'/>");
-	
-	/* 	
-	 	image.removeElement("src");
- 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
- 	*/
-		var parent = $(this).parent();
- 		$(this).remove();
- 		parent.append(imgg);
- 	});
+		switchImage($(this),imgLink);
+	});
 }
- 	
+function switchImage(img, imgLink){
+	var imgg = img.clone();
+	imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+	var parent = img.parent();
+	img.remove();
+	parent.append(imgg);
+}
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
