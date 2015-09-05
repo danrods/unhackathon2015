@@ -1,24 +1,30 @@
 body{
-	font-family: sans-serif;
-	background-color: #ff69b4;
-	padding: 2%;
-	margin: 1%;
-	width: 500px;
-	height: 100px;
+	background-image: url("http://previews.123rf.com/images/rixie/rixie1110/rixie111000097/10799045-A-vector-illustration-of-a-patchwork-quilt-background-in-shades-of-blue-Stock-Vector.jpg");
+	padding: .75%;
+	width: 650px;
+	height: 110px;
+	text-align: center;
+}
+
+.buttons{
+	
+	border-radius: 5px;
+	width: 70%;
+	display: inline-block;
 }
 
 input
 {
+	background-color: #ffffff;
   -moz-border-radius: 10px;
 	border-radius: 10px;
     border:solid 1px black;
-    padding:1%;
+    padding:.75%;
 	margin: 1%;
 }
 
 .searchField {width: 90%}
 
-imgBtn
-{
-border: 3px round;
+.btnTxt{
+	background-color: #ffffff;
 }
