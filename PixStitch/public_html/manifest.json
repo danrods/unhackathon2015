@@ -7,18 +7,28 @@
 
   "browser_action": {
     "default_icon": "images/arrow-16.png",
-    "default_popup": "popup.html",
+    "default_popup": "html/popup.html",
     "default_title": "pixStitch"
   },
+  /*"content_scripts": [
+    {
+      "matches": ["http://www.google.com/*"],
+      "css": ["js/mystyles.css"],
+      "js": ["js/jquery.js", "jsmyscript.js"]
+    }
+  ],
+*/
   "background": {
     "persistent": false,
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
-  "icons": { 
+ 
+ "icons": { 
     "16":"images/arrow-16.png", 
     "48":"images/arrow-48.png", 
     "128":"images/arrow-128.png" 
    }, 
+  
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"
