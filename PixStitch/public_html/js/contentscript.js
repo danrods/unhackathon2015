@@ -5,7 +5,10 @@ chrome.runtime.onMessage.addListener(
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    console.log("EASDLKFJAKSDJFASDF");
+    if (request.greeting != null)
+    	console.log(request);
+    else
+    	console.log("ADSFLKJADSFLKASD");
     //getting objects in message, use request.greeting
     if (request.greeting == "hello")
       sendResponse({farewell: "goodbye"});
