@@ -2,7 +2,21 @@ function changeImageRandom(imgLink)
 {
 	var rand = Math.floor((Math.random() * $("img").length));
 	console.log(rand);
- 	var image = $("img").get(rand).attr("src",imgLink);
+	//random doesnt work... -_-
+
+	var image = $("img").first();
+	console.log(image);
+	var imgg = image.clone();
+	imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+	//var img = $("body").html("<img src='" + imgLink + "'/>");
+	
+/* 	
+ 	image.removeElement("src");
+ 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
+ 	*/
+	var parent = image.parent();
+ 	image.remove();
+ 	parent.append(imgg);
 }
 function changeImageClick(element,imgLink)
 {
@@ -11,9 +25,22 @@ function changeImageClick(element,imgLink)
 }
 function changeImageAll(imgLink)
 {
-	console.log("YESS SUCCESS");
-	$("img").attr("src",imgLink);
+	var images = $("img");
+	images.each( function(){
+		var imgg = $(this).clone();
+		imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+		//var img = $("body").html("<img src='" + imgLink + "'/>");
+	
+	/* 	
+	 	image.removeElement("src");
+ 	image.attr("src",imgLink + "?timestamp=" + new Date().getTime());
+ 	*/
+		var parent = $(this).parent();
+ 		$(this).remove();
+ 		parent.append(imgg);
+ 	});
 }
+ 	
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
@@ -27,6 +54,6 @@ chrome.runtime.onMessage.addListener(
     if (request.greeting == "hello")
       sendResponse({farewell: "goodbye"});
   	if (request.greeting == "something")
-  		changeImageRandom("https://s.zkcdn.net/Advertisers/bf6a160cde9746c890285a40334fe6c2.jpg");
+  		changeImageAll("https://s.zkcdn.net/Advertisers/bf6a160cde9746c890285a40334fe6c2.jpg");
   });
 
