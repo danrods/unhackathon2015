@@ -10,14 +10,13 @@
     "default_popup": "html/popup.html",
     "default_title": "pixStitch"
   },
-  /*"content_scripts": [
+  "content_scripts": [
     {
-      "matches": ["http://www.google.com/*"],
-      "css": ["js/mystyles.css"],
-      "js": ["js/jquery.js", "jsmyscript.js"]
+      "matches": ["<all_urls>"],
+      "css": [],
+      "js": ["js/jquery.js", "js/contentscript.js"]
     }
   ],
-*/
   "background": {
     "persistent": false,
     "scripts": ["js/background.js"]
@@ -30,7 +29,6 @@
    }, 
   
   "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
+    "activeTab"
   ]
 }
