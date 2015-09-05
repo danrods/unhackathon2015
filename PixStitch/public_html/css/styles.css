@@ -25,7 +25,11 @@ input
 }
 
 .searchField {width: 90%}
-
+.imgBtn img{
+        margin: 10px 15px;
+       height: 100px;
+       width:  100px;
+    }
 .btnTxt{
 	background-color: transparent;
 	padding: .5%;
