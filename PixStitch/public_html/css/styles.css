@@ -1,10 +1,10 @@
 body{
 	font-family: sans-serif;
-	background-color: #ffffff;
-	padding: 1.5%;
-	margin: .5%;
-	width: 350px;
-	height: 250px;
+	background-color: #ff69b4;
+	padding: 2%;
+	margin: 1%;
+	width: 500px;
+	height: 100px;
 }
 
 input
@@ -12,10 +12,13 @@ input
   -moz-border-radius: 10px;
 	border-radius: 10px;
     border:solid 1px black;
-    padding:3px;
+    padding:1%;
+	margin: 1%;
 }
+
+.searchField {width: 90%}
 
 imgBtn
 {
-border: 5px round;
+border: 3px round;
 }
