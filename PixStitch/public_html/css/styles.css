@@ -1,17 +1,32 @@
 body{
-	font-family: sans-serif;
-	background-color: #ffffff;
-	padding: 1.5%;
-	margin: .5%;
-	width: 350px;
-	height: 250px;
+	background-image: url('../images/patchbkg.jpg');
+	padding: .75%;
+	width: 650px;
+	height: 110px;
+	margin:2px;
+	text-align: center;
+}
+
+.buttons{
+	
+	border-radius: 5px;
+	width: 70%;
+	display: inline-block;
 }
 
 input
 {
+	background-color: #ffffff;
   -moz-border-radius: 10px;
 	border-radius: 10px;
     border:solid 1px black;
-    padding:3px;
-	width: 310px;
+    padding:.75%;
+	margin: 1%;
+}
+
+.searchField {width: 90%}
+
+.btnTxt{
+	background-color: transparent;
+	padding: .5%;
 }

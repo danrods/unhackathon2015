@@ -29,6 +29,7 @@ chrome.runtime.onMessage.addListener(
                 "from a content script:" + sender.tab.url :
                 "from the extension");
     //getting objects in message, use request.greeting
+    console.log(request.imageLink);
      switch(request.ID){
             case "random":
                 changeImageRandom(request.imageLink);
@@ -37,9 +38,9 @@ chrome.runtime.onMessage.addListener(
                 changeImageSecret(request.imageLink);
                 break;
             case "all":    
-  				hangeImageAll(request.imageLink);
+  				changeImageAll(request.imageLink);
              	break;
          	default:
             	console.log("WHOOP!! :) ");
-  });
+  }});
 

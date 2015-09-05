@@ -1,28 +1,14 @@
 $(document).ready( function(){
-	ImageList = [
-	/*banner:*/"https://s.zkcdn.net/Advertisers/bf6a160cde9746c890285a40334fe6c2.jpg",
-	/*hungry*/ "http://static.wixstatic.com/media/be8b00_96febcabacc147abad31999821d45c14.jpg_srz_960_960_85_22_0.50_1.20_0.00_jpg_srz"
+	var ImageList = {
+	/*hungry*/ "Hungry":"http://static.wixstatic.com/media/be8b00_96febcabacc147abad31999821d45c14.jpg_srz_960_960_85_22_0.50_1.20_0.00_jpg_srz"
+	/*Jesus*/ "Jesus":"https://gregorycrofford.files.wordpress.com/2014/08/eucharist.jpg",
+	/*MAD*/ "flower": "http://www.scaryforkids.com/pics/clown-movies.jpg",
+	/*Lizard*/ "lizard" :""
+			}
 
-			]
-/*
-
-witch(request.greeting){
-            case "random":
-                changeImageRandom(request.imageLink);
-            	break;
-            case "secret":
-                changeImageSecret(request.imageLink);
-                break;
-            case "all":    
-  				hangeImageAll(request.imageLink);
-             	break;
-         	default:
-            	console.log("WHOOP!! :) ");
-  });
-*/
-
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-	  		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink:ImageList[0]}, function(response) {
+			ImageList["Hungry"]
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+	  		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink:ImageList["Hungry"]}, function(response) {
 	  			if (response != null || response  != undefined)
 	    			console.log(response.farewell);
 	  		});
@@ -32,7 +18,7 @@ witch(request.greeting){
 			try {
 				var str = $(this).attr('id');
 				chrome.tabs.query({active: true, currentWindow: true }, function(tabs) {
-			  		chrome.tabs.sendMessage(tabs[0].id, {ID: str, imageLink:ImageList[0]}, function(response) {
+			  		chrome.tabs.sendMessage(tabs[0].id, {ID: str, imageLink:ImageList["Hungry"]}, function(response) {
 			  		});
 				});
 				console.log("done");
