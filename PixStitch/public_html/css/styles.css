@@ -3,6 +3,7 @@ body{
 	padding: .75%;
 	width: 650px;
 	height: 110px;
+	margin:2px;
 	text-align: center;
 }
 
@@ -27,4 +28,5 @@ input
 
 .btnTxt{
 	background-color: #ffffff;
+	padding: .5%;
 }
