@@ -1,2 +1,14 @@
-$("img").attr("src","https://upload.wikimedia.org/wikipedia/commons/b/b2/2000px_-_Pictogram_voting_merge_2.png");
+function changeImageRandom(imgLink)
+{
+	var rand = (Math.Random() * $("img").length);
+	$("img").get(rand).attr("src",imLink);
+}
+function changeImageClick(element,imgLink)
+{
 
+	$("img").get(rand).attr("src",imgLink);
+}
+function changeImageAll(imgLink)
+{
+	$("img").attr("src",imgLink);
+}
