@@ -13,4 +13,14 @@ function changeImageAll(imgLink)
 	console.log("YESS SUCCESS");
 	$("img").attr("src",imgLink);
 }
-console.log("read content src");
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    console.log("EASDLKFJAKSDJFASDF");
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  });
+
