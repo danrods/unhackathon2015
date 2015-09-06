@@ -10,15 +10,12 @@ $(document).ready( function(){
 	var ImageList = {
 	/*hungry*/ "hungry":"http://static.wixstatic.com/media/be8b00_96febcabacc147abad31999821d45c14.jpg_srz_960_960_85_22_0.50_1.20_0.00_jpg_srz",
 	/*Jesus*/ "jesus":"https://gregorycrofford.files.wordpress.com/2014/08/eucharist.jpg",
-	/*MAD*/ "flower": "https://external.fphl1-1.fna.fbcdn.net/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg",
+	/*MAD*/ "flower": "http://www.scaryforkids.com/pics/clown-movies.jpg",
 	/*Lizard*/ "lizard" :"http://cliparts.co/cliparts/di4/orx/di4orx9AT.jpg"
 			}
-	var image_id = document.getElementsByClassName("WOOPEE")[0].getAttribute('id');
-	image_id = $("WOOPEE").eq(0).attr('id');
-	console.log(image_id);
-	var sub = ImageList[image_id];
-	console.log(sub);
-	sub = "https://external.fphl1-1.fna.fbcdn.n0et/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
+
+	var sub = "https://external.fphl1-1.fna.fbcdn.n0et/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
+	sub ="http://www.scaryforkids.com/pics/clown-movies.jpg";
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink: ""+sub}, function(response) {
   			if (response != null || response  != undefined)
@@ -30,7 +27,7 @@ $(document).ready( function(){
 			try {
 				var str = $(this).attr('id');
 				chrome.tabs.query({active: true, currentWindow: true }, function(tabs) {
-			  		chrome.tabs.sendMessage(tabs[0].id, {ID: str, imageLink:""+sub}, function(response) {
+			  		chrome.tabs.sendMessage(tabs[0].id, {ID: str, imageLink:sub}, function(response) {
 			  		});
 				});
 				console.log("done");
