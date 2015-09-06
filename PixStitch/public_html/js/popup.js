@@ -13,11 +13,14 @@ $(document).ready( function(){
 	/*MAD*/ "flower": "https://external.fphl1-1.fna.fbcdn.net/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg",
 	/*Lizard*/ "lizard" :"http://cliparts.co/cliparts/di4/orx/di4orx9AT.jpg"
 			}
-	var sub = ImageList[$(".WOOPEE").id];
+	var image_id = document.getElementsByClassName("WOOPEE")[0].getAttribute('id');
+	image_id = $("WOOPEE").eq(0).attr('id');
+	console.log(image_id);
+	var sub = ImageList[image_id];
 	console.log(sub);
-sub = "https://external.fphl1-1.fna.fbcdn.net/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
+	sub = "https://external.fphl1-1.fna.fbcdn.n0et/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink: ""+ sub}, function(response) {
+  		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink: ""+sub}, function(response) {
   			if (response != null || response  != undefined)
     			console.log(response.farewell);
   		});
