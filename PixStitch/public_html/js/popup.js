@@ -1,9 +1,15 @@
 $(document).ready( function(){
-
+	var link="";
+	var sub = "https://external.fphl1-1.fna.fbcdn.n0et/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
+	sub ="http://www.scaryforkids.com/pics/clown-movies.jpg";
 	$(".imgBtn img").each(function(){
 		$(this).on("click", function(){
 			console.log($(this));
-			$(this).toggleClass(" WOOPEE");
+
+			link = $(this).attr("alt");
+			sub = ImageList[link];
+			console.log(link);
+			$(this).toggleClass("WOOPEE");
 		});
 	});
 
@@ -12,10 +18,10 @@ $(document).ready( function(){
 	/*Jesus*/ "jesus":"https://gregorycrofford.files.wordpress.com/2014/08/eucharist.jpg",
 	/*MAD*/ "flower": "http://www.scaryforkids.com/pics/clown-movies.jpg",
 	/*Lizard*/ "lizard" :"http://cliparts.co/cliparts/di4/orx/di4orx9AT.jpg"
-			}
+	}
+	
 
-	var sub = "https://external.fphl1-1.fna.fbcdn.n0et/safe_image.php?d=AQBmvgwX5E6eQNHh&w=960&h=960&url=http%3A%2F%2Fwww.scaryforkids.com%2Fpics%2Fclown-movies.jpg";
-	sub ="http://www.scaryforkids.com/pics/clown-movies.jpg";
+	
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   		chrome.tabs.sendMessage(tabs[0].id, {ID: "hello", imageLink: ""+sub}, function(response) {
   			if (response != null || response  != undefined)
