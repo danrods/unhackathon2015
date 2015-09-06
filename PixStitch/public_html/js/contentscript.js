@@ -18,7 +18,7 @@ function changeImageAll(imgLink) //TODOS LOS FOTOS
 }
 function switchImage(img, imgLink){ // helper functions... :) 
 	var imgg = img.clone();
-	imgg.attr("src", imgLink + "?timestamp=" + new Date().getTime());
+	imgg.attr("src", imgLink);
 	var parent = img.parent();
 	img.remove();
 	parent.append(imgg);
