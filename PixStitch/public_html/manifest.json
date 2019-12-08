@@ -21,7 +21,10 @@
     "persistent": false,
     "scripts": ["js/background.js"]
   },
- 
+ "omnibox": { "keyword" : "pixstitch" },
+        "icons": {
+          "16": "16-full-color.png"
+        },
  "icons": { 
     "16":"images/arrow-16.png", 
     "48":"images/arrow-48.png", 

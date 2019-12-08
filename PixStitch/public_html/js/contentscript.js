@@ -14,6 +14,13 @@ function changeImageAll(imgLink)
 	console.log("YESS SUCCESS");
 	$("img").attr("src",imgLink);
 }
+function changeTextTransition(text){
+    console.log("Changing Text");
+    //$("p").each(function(){
+    //   $(this).css("font-weight:bold;animation-name: example; animation-duration: 4s;") 
+    //});
+    
+}
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
@@ -26,7 +33,11 @@ chrome.runtime.onMessage.addListener(
     //getting objects in message, use request.greeting
     if (request.greeting == "hello")
       sendResponse({farewell: "goodbye"});
-  	if (request.greeting == "something")
+    if (request.greeting == "something")
   		changeImageRandom("https://s.zkcdn.net/Advertisers/bf6a160cde9746c890285a40334fe6c2.jpg");
+    if(request.greeting == "omni")
+      console.log("hmm");
+        alert("Hmm");
+    ///changeTextTransition(request.text);
   });
 

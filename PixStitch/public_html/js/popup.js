@@ -5,6 +5,7 @@ $(document).ready( function(){
 	    			console.log(response.farewell);
 	  		});
 		});
+                
 	$("a").each(function(){
 		$(this).click(function(){
 		console.log("clicked button");
@@ -23,4 +24,5 @@ $(document).ready( function(){
 		}
 		});
 	});
+        
 });
